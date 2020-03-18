@@ -22,6 +22,12 @@ func main() {
 			如何解决？可以将str转成[]rune切片
 	*/
 
+	// 对上面中文乱码问题的解决
+	str2 := []rune(str)
+	for i:=0;i<len(str2) ;i++  {
+		fmt.Printf("%c \n",str2[i])
+	}
+
 	var str1 = "呵呵"
 	fmt.Println("len(str):", len(str1)) // 输出6 golang中string底层是通过byte数组实现的 len 实际是在按字节长度计算
 	fmt.Println("chinese word length", len([]rune(str1))) // 输出chinese word length 2
@@ -32,16 +38,8 @@ func main() {
 		    rune 等同于int32,常用来处理unicode或utf-8字符
 	*/
 
-	// 对上面中文乱码问题的解决
-	str2 := []rune(str)
-	for i:=0;i<len(str2) ;i++  {
-		fmt.Printf("%c \n",str2[i])
-	}
 }
-/*
-	总结：
-	1、
-*/
+
 
 
 

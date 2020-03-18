@@ -1,5 +1,5 @@
 /**
-	学习符合数据类型-数组
+	学习复合数据类型-数组
  */
 package main
 
@@ -23,7 +23,7 @@ func main() {
 	}
 
 	//比较两个数组是否相等  数组的长度相同，数组中元素的类型相同、所有元素都是相等
-	c := [3]int{1}
+	c := [3]int{1,2,3}
 	fmt.Println(c == a)
 
 	//多维数组  var array_name [size1][size2]...[sizen] array_type

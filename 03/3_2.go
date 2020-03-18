@@ -16,6 +16,7 @@ func main() {
 	default:
 		fmt.Println("Number is 10 or greater")
 	}
+
 	// 输出：Number is between 0 and 10
 	var num int = 10
 	switch num {
@@ -26,6 +27,8 @@ func main() {
 			fallthrough
 		case 32:
 			fmt.Println("ok3")
+		case 56:
+		fmt.Println("ok4")
 		default:
 			fmt.Println("没有匹配到")
 	}

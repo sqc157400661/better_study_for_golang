@@ -15,6 +15,7 @@ func df() {
 		defer fmt.Printf("%d ", i)
 	}
 	fmt.Printf("defer\n")
+	panic("123123")
 }
 /*
 	总结：

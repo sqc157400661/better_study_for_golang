@@ -12,13 +12,16 @@ func main() {
 		2、如果参数被存储在一个`slice` 类型的变量 slice 中，则可以通过 slice... 的形式来传递参数调用变参函数。
 	 */
 	Greeting("ziroom","shiqc","gaoh","liupt")
+
+
+
 	who := []string{"wangwt","guiz","liy"}
 	Greeting("ziroom",who...)
 
 
 }
 
-func Greeting(prefix string, who ...string){
+func Greeting(prefix string, who...string){
 	// who的值是个切片
 	fmt.Println("prefix:"+prefix,who," Hi!!!!!")
 }
