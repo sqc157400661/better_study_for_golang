@@ -13,12 +13,12 @@ func main() {
 			for j := 0; j < 5; j++ {
 				switch j {
 				case 2:
+					fmt.Println(i, j)
+					break OuterLoop
+				case 3:
 					fmt.Println("continue start",i, j)
 					continue
 					fmt.Println("continue after",i, j)
-				case 3:
-					fmt.Println(i, j)
-					break OuterLoop
 				}
 			}
 		}
