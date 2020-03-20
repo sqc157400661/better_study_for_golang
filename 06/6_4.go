@@ -1,15 +1,36 @@
 /**
-	学习通道- 带缓冲的通道
+	学习通道- 单向通道
  */
 package main
 
-func main() {
+import (
+	"fmt"
+	"time"
+)
 
+func main() {
+	sendChan := make(chan int)
+	reciveChan := make(chan int)
+	go processChannel(sendChan, reciveChan)
+	go generate(sendChan)
+	go printChannel(reciveChan)
+	time.Sleep(1e9)
+}
+func generate(sendChan chan int){
+	for i := 0; i<3; i++ {
+		sendChan <- i // Send 'i' to channel 'ch'.
+	}
 }
 
+func processChannel(in <-chan int, out chan<- int) {
+	for inValue := range in {
+		result := inValue*2 /// processing inValue
+		out <- result
+	}
+}
+func printChannel(out chan int) {
+	for value := range out {
+		fmt.Println(value)
+	}
+}
 
-/*
-	总结：
-	1、数据往通道中发送时，如果接收方一直都没有接收，那么发送操作将持续阻塞
-	2、接收通道中数据时，通道中没有发送方发送数据，接收方也会发生阻塞，直到发送方发送数据为止
- */
