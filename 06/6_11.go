@@ -1,5 +1,5 @@
 /**
-	学习通道- 多核并行化
+	学习通道- 等待组（sync.WaitGroup）
  */
 package main
 import (
