@@ -13,6 +13,14 @@ func main() {
 	a = a[:len(a)-2] // 删除尾部2个元素
 	fmt.Printf("a:%v,地址:%p\n", a, a)
 
+	// 坑点
+	//for i,v := range a{
+	//	if v%2 ==1 {
+	//		a = append(a[:i], a[i+1:]...)
+	//	}
+	//}
+	//fmt.Printf("a:%v,地址:%p\n", a, a)
+
 
 	seq := []string{"a", "b", "c", "d", "e"}
 	fmt.Printf("seq:%v,地址:%p\n", seq, seq)
@@ -23,6 +31,8 @@ func main() {
 	// 将删除点前后的元素连接起来
 	seq = append(seq[:index], seq[index+1:]...)
 	fmt.Printf("seq:%v,地址:%p\n", seq, seq)
+
+
 
 
 }

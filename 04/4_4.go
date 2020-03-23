@@ -12,9 +12,9 @@ func main() {
 	a = append(a, []int{1,2,3}...) // 追加一个切片, 切片需要解包
 	fmt.Println(a)
 
-	var numbers []int
+	var numbers = make([]int,0,1024)
 	// 循环向 numbers 切片添加10个数。
-	for i := 0; i < 10; i++ {
+	for i := 0; i < 1025; i++ {
 		numbers = append(numbers, i)
 		// 打印输出切片的长度、容量和指针变化。使用 len() 函数查看切片拥有的元素个数，使用 cap() 函数查看切片的容量情况。
 		fmt.Printf("len: %d  cap: %d pointer: %p\n", len(numbers), cap(numbers), numbers)

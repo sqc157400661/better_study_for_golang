@@ -9,6 +9,7 @@ func main() {
 	slice1 := []int{1, 2, 3, 4, 5}
 	slice2 := make([]int, 3)//[]int{5, 4, 3}
 	copyNum := copy(slice2, slice1) // 只会复制slice1的前3个元素到slice2中
+	fmt.Println(slice2)
 	slice3 := slice1
 	fmt.Println(copyNum) // copy 函数将返回成功复制的元素的个数，等于两个 slice 中较小的长度
 	//copy(slice1, slice2) // 只会复制slice2的3个元素到slice1的前3个位置
