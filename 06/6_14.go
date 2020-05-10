@@ -47,7 +47,7 @@ func mutexShow(c *secret) string {
 }
 
 func main() {
-	// 定义一个稍后用于覆盖(重写)的函数
+	// 定义一个稍后用于覆盖(重写)的函数  函数类型和rwMutexShow()、mutexShow()相同可以相互赋值
 	var show = func(c *secret) string { return "" }
 
 	// 通过变量赋值的方式，选择并重写showFunc函数
@@ -83,14 +83,10 @@ func main() {
 
 /*
 	解释：
-	1、在for循环中，会不断激活新的goroutine(共21个)执行匿名函数，在每个匿名函数中都会执行change()和read()，意味着每个goroutine都会申请两次锁、释放两次锁
-	2、change()和read()中都申请锁，对于这21个goroutine将要分别执行的42个critical section，Lock()保证了在某一时间点只有其中一个goroutine能访问其中一个critical section。
-当释放了一个critical section，其它的Lock()将争夺互斥锁，也就是所谓的竞争现象(race condition)。因为竞争的存在，这42个critical section被访问的顺序是随机的，完全无法保证哪个critical section先被访问
-	3、每个goroutine中的read()也都会参与锁竞争，所以并不能保证每次change(i)之后会随之执行到read()，
-可能goroutine 1的change()执行完后，会跳转到goroutine 3的change()上，这样一来，goroutine 1的read()就无法读取到goroutine 1所修改的v1值，而是访问到其它goroutine中修改后的值
-
-	总结：
-	1、Mutex保证了每个critical section安全，某一时间点只有一个goroutine访问到这部分，但也因此而出现了随机性。
-	2、适用于读写不确定，并且只有一个读或者写的场景
-	3、如果Lock()后忘记了Unlock()，将会永久阻塞而出现死锁
+	1、for循环中激活了5个goroutine并发运行，for瞬间激活5个goroutine后，继续执行main()代码会激活另一个用于申请写锁的goroutine。这6个goroutine的执行顺序是随机的
+	2、如果show选中的函数是rwMutexShow()，则5个goroutine要申请的RLock()锁和写锁是冲突的，但5个RLock()是兼容的。
+所以，只要某个时间点调度到了写锁的goroutine，剩下的读锁goroutine都会从那时开始阻塞3秒。
+	3、5个goroutine都申请读锁，因为申请后立即print输出，然后睡眠1秒，
+但1秒时间足够所有剩下的goroutine申请完读锁，使得show with rwmutex输出是连在一起，输出的Go Pass: 123456又是连在一起的
+	4、Mutex和RWMutex都不关联goroutine，但RWMutex显然更适用于读多写少的场景。仅针对读的性能来说，RWMutex要高于Mutex，因为rwmutex的多个读可以并存。
  */
