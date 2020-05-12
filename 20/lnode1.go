@@ -14,22 +14,24 @@ type LNode struct{
 
 //创建链表
 func CreateNode(node *LNode, max int) {
-	for i:=1;i<max;i++{
-		node.Next = &LNode{}
-		node.Next.Data = i
-		node = node.Next
-		fmt.Printf("%p \n",node)
+	cur := node // 不用这个变量试试下面打印  这里有个go函数调用与栈的关系
+	for i := 1; i < max; i++ {
+		cur.Next = &LNode{}
+		cur.Next.Data = i
+		cur = cur.Next
 	}
 	fmt.Println(node.Data)
 }
 
+
 func main(){
- 	head := &LNode{}
- 	CreateNode(head,8)
+	head := &LNode{}
+	CreateNode(head,8)
 	fmt.Printf("%p \n",head)
 	fmt.Println(head.Data)
-	//PrintNode("逆序前",head)
-
+	PrintNode("逆序前",head)
+	Reverse(head)
+	PrintNode("逆序后",head)
 }
 
 //打印链表的方法
@@ -51,9 +53,10 @@ func Reverse(node *LNode){
 	next := node.Next // 后继极点
 
 	for next != nil{
-		pre = cur
-		cur = node.Next
-		next = node.Next.Next
+		cur = next.Next
+		next.Next = pre
+		pre = next
+		next = cur
 	}
 	node.Next = pre
 }
