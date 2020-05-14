@@ -4,7 +4,9 @@
 */
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 //链表定义
 type LNode struct {
@@ -40,18 +42,20 @@ func PrintNode(info string, node *LNode) {
 }
 
 func Reverse(node *LNode) {
-	firstNode := node.Next
-	//递归调用
-	newHead := ReverseChild(firstNode)
-	node.Next = newHead
-}
+	//var head  =node
+	//var frist = node.Next
+	//var cur = node.Next.Next
+	//var next = node.Next.Next.Next
+	//node.Next = cur
+	//node.Next.Next = frist
+	//node.Next.Next.Next = next
 
-func ReverseChild(node *LNode) *LNode {
-	if node == nil || node.Next == nil {
-		return node
+	var cur = node.Next.Next
+	node.Next.Next = nil // 第一个节点首先设置为nil 即尾结点
+	for cur != nil {
+		next := cur.Next
+		cur.Next = node.Next
+		node.Next = cur
+		cur = next
 	}
-	newHead := ReverseChild(node.Next)
-	node.Next.Next = node
-	node.Next = nil
-	return newHead
 }
