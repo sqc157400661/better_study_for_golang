@@ -20,15 +20,12 @@ func CreateNode(node *LNode, max int) {
 		cur.Next.Data = i
 		cur = cur.Next
 	}
-	fmt.Println(node.Data)
 }
 
 
 func main(){
 	head := &LNode{}
 	CreateNode(head,8)
-	fmt.Printf("%p \n",head)
-	fmt.Println(head.Data)
 	PrintNode("逆序前",head)
 	Reverse(head)
 	PrintNode("逆序后",head)
@@ -49,14 +46,13 @@ func Reverse(node *LNode){
 		return
 	}
 	var pre *LNode // 定义前驱节点
-	var cur *LNode // 定义当前节点
-	next := node.Next // 后继极点
-
-	for next != nil{
+	var cur *LNode // 定义当前节点,临时变量
+	next := node.Next // 后继结点存起来，防止丢失 从第二个节点开始循环
+	for next != nil { //next为空说明遍历到最后一个了，反之说明没有到最后
 		cur = next.Next
 		next.Next = pre
-		pre = next
-		next = cur
+		pre = next  //后移前驱结点
+		next = cur  //后移后驱结点
 	}
-	node.Next = pre
+	node.Next = pre // 最后一个节点变成首节点
 }
