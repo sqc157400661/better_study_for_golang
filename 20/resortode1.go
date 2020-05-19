@@ -32,7 +32,7 @@ func CreateNode(node *LNode, max int) {
 	慢指针指向的结点和慢指针指向的结点的下一个结点都是链表的中间结点
  */
 
-func findMiddleNode(head *LNode) *LNode{
+func findLastK(head *LNode) *LNode{
 	if head==nil || head.Next==nil {
 		return head
 	}
