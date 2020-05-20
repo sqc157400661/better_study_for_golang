@@ -16,41 +16,65 @@ type LNode struct {
 //创建测试链表
 func CreateNode(node *LNode, max int) {
 	cur := node // 不用这个变量试试下面打印  这里有个go函数调用与栈的关系
+	var tmp *LNode
 	for i := 1; i < max; i++ {
 		cur.Next = &LNode{}
 		cur.Next.Data = i
 		cur = cur.Next
+		if(max - i ==4){
+			tmp = cur
+		}
+		if(max - i ==1){
+			cur.Next = tmp
+		}
 	}
 }
 
 /*
-	快慢指针查找
+	判断单链表是否有环
  */
 
-func findLastK(head *LNode,k int) *LNode{
+func IsLoop(head *LNode) *LNode{
 	if head==nil || head.Next==nil {
 		return head
 	}
-	slow := head
-	fast := head
+	slow := head.Next
+	fast := head.Next
 
-	for i:=1;i<=k && fast !=nil; i++{
-		fast = fast.Next
-	}
-	for fast !=nil { //防止对空指针的访问操作
-		fast = fast.Next
+	for fast !=nil && fast.Next != nil{ //防止对空指针的访问操作
+		fast = fast.Next.Next
 		slow = slow.Next
+		if slow == fast{
+			return slow
+		}
 	}
-	return slow
+	return nil
+}
+
+// 找出环的入口点
+func FindLoopNode(head *LNode,meetNode *LNode) *LNode{
+	first := head.Next
+	second := meetNode
+	for first != second {
+		first = first.Next
+		second = second.Next
+	}
+	return first
 }
 
 func main() {
-	fmt.Println("寻找倒数K")
+	fmt.Println("单链表是否有环")
 	head1 := &LNode{}
 	CreateNode(head1, 8)
-	PrintNode("原链表 ", head1)
-	fmt.Println("寻找倒数K",findLastK(head1,3))
-
+	meetNode := IsLoop(head1)
+	fmt.Println(meetNode)
+	if meetNode != nil {
+		fmt.Println("有环")
+		loopNode := FindLoopNode(head1,meetNode)
+		fmt.Println("环的入口点为：",loopNode.Data)
+	}else{
+		fmt.Println("无环")
+	}
 }
 
 //打印链表的方法

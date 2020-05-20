@@ -31,8 +31,8 @@ func findLastK(head *LNode,k int) *LNode{
 	if head==nil || head.Next==nil {
 		return head
 	}
-	slow := head
-	fast := head
+	slow := head.Next
+	fast := head.Next
 
 	for i:=1;i<=k && fast !=nil; i++{
 		fast = fast.Next
