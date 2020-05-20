@@ -1,5 +1,5 @@
 /**
- 如何找出单链表中的倒数第k个元素
+ 	何检测一个较大的单链表是否有环
 */
 package main
 
@@ -13,7 +13,7 @@ type LNode struct {
 	Next *LNode      //  对下一个节点的作用
 }
 
-//创建链表
+//创建测试链表
 func CreateNode(node *LNode, max int) {
 	cur := node // 不用这个变量试试下面打印  这里有个go函数调用与栈的关系
 	for i := 1; i < max; i++ {

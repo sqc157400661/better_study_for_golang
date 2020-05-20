@@ -1,5 +1,5 @@
 /**
- 如何找出单链表中的倒数第k个元素
+ 如何将单链表向右旋转k个位置
 */
 package main
 
@@ -24,33 +24,37 @@ func CreateNode(node *LNode, max int) {
 }
 
 /*
-	快慢指针查找
- */
-
-func findLastK(head *LNode,k int) *LNode{
-	if head==nil || head.Next==nil {
+	把链表右旋K个位置
+*/
+func RotateK(head *LNode, k int) *LNode {
+	if head == nil || head.Next == nil {
 		return head
 	}
 	slow := head
 	fast := head
 
-	for i:=1;i<=k && fast !=nil; i++{
+	for i := 1; i <= k && fast != nil; i++ {
 		fast = fast.Next
 	}
-	for fast !=nil { //防止对空指针的访问操作
+	for fast.Next != nil { //防止对空指针的访问操作
 		fast = fast.Next
 		slow = slow.Next
 	}
-	return slow
+	tmp := head.Next
+	head.Next = slow.Next
+	slow.Next = nil
+	fast.Next = tmp
+	return head
 }
 
+
+
 func main() {
-	fmt.Println("寻找倒数K")
+	fmt.Println("右旋k个位置")
 	head1 := &LNode{}
 	CreateNode(head1, 8)
 	PrintNode("原链表 ", head1)
-	fmt.Println("寻找倒数K",findLastK(head1,3))
-
+	PrintNode("右旋3个位置", RotateK(head1, 3))
 }
 
 //打印链表的方法
@@ -61,4 +65,3 @@ func PrintNode(info string, node *LNode) {
 	}
 	fmt.Println()
 }
-
