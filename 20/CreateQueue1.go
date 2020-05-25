@@ -37,7 +37,7 @@ func (p *LinkedQueue) Size() int {
 	return size
 }
 
-// 入队列 把元素加到队尾
+// 入队列 把新元素加到队尾
 func (p *LinkedQueue) EnQueue(t int)  {
 	node := &LNode{Data:t}
 	if p.head == nil {
@@ -48,44 +48,51 @@ func (p *LinkedQueue) EnQueue(t int)  {
 		p.end = node
 	}
 }
-// 把新元素加入队列尾
-//func (p *LinkedQueue) EnQueue() {
-//
-//}
 
-//// 获取队列首元素
-//func (p *LinkedQueue) GetFront() int {
-//	if p.IsEmpty() {
-//		panic(errors.New("队列已经为空."))
-//	}
-//	return p.Arr[p.front]
-//}
-//
-//// 获取队列尾元素
-//func (p *LinkedQueue) GetBack() int {
-//	if p.IsEmpty() {
-//		panic(errors.New("队列已经为空."))
-//	}
-//	return p.Arr[p.rear-1]
-//}
-//
-//
-//
-//func LinkedMode() {
-//	defer func() {
-//		if err := recover(); err != nil {
-//			fmt.Println(err)
-//		}
-//	}()
-//	fmt.Println("Slice构建队列结构")
-//	sliceQueue := &SliceQueue{Arr: make([]int, 0)} // 注意这里make第二个参数len需要是0
-//	sliceQueue.EnQueue(1)
-//	sliceQueue.EnQueue(2)
-//	sliceQueue.EnQueue(3)
-//	fmt.Println("队列头元素为：", sliceQueue.GetFront())
-//	fmt.Println("队列尾元素为：", sliceQueue.GetBack())
-//	fmt.Println("队列大小为：", sliceQueue.Size())
-//}
-//func main() {
-//	LinkedMode()
-//}
+// 出队列，删除队列的首元素
+func (p *LinkedQueue) DeQueue() {
+	if p.head ==nil {
+		panic(errors.New("队列已经为空"))
+	}
+	p.head = p.head.Next
+	if p.head == nil {
+		p.end = nil
+	}
+}
+
+// 获取队列首元素
+func (p *LinkedQueue) GetFront() int {
+	if p.IsEmpty() {
+		panic(errors.New("队列已经为空."))
+	}
+	return p.head.Data.(int)
+}
+
+// 获取队列尾元素
+func (p *LinkedQueue) GetBack() int {
+	if p.IsEmpty() {
+		panic(errors.New("队列已经为空."))
+	}
+	return p.end.Data.(int)
+}
+
+
+
+func LinkedMode() {
+	defer func() {
+		if err := recover(); err != nil {
+			fmt.Println(err)
+		}
+	}()
+	fmt.Println("链表构建队列结构")
+	linkedQueue := &LinkedQueue{head: nil,end:nil} // 注意这里make第二个参数len需要是0
+	linkedQueue.EnQueue(1)
+	linkedQueue.EnQueue(2)
+	linkedQueue.EnQueue(3)
+	fmt.Println("队列头元素为：", linkedQueue.GetFront())
+	fmt.Println("队列尾元素为：", linkedQueue.GetBack())
+	fmt.Println("队列大小为：", linkedQueue.Size())
+}
+func main() {
+	LinkedMode()
+}
