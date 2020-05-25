@@ -40,9 +40,9 @@ func (p *SliceStack) Pop() int {
 /*
 	创建一个测试的栈
  */
-func CreateStack(list []int) *SliceStack{
+func CreateStack(list []int) *SliceStack {
 	sliceStack := &SliceStack{Arr: make([]int, 0)} // 注意这里make第二个参数len需要是0
-	for _,v := range list{
+	for _, v := range list {
 		sliceStack.Push(v)
 	}
 	return sliceStack
@@ -51,13 +51,13 @@ func CreateStack(list []int) *SliceStack{
 /*
 	翻转栈顺序
  */
-func ReverseStack(s *SliceStack){
+func ReverseStack(s *SliceStack) {
 	if s.IsEmpty() {
 		return
 	}
 	// 把栈低元素移动到栈顶
 	moveBottomToTop(s)
-	top  := s.Pop()
+	top := s.Pop()
 	// 递归处理子栈
 	ReverseStack(s)
 	s.Push(top)
@@ -67,11 +67,11 @@ func ReverseStack(s *SliceStack){
 /*
 	把底部元素迁移到顶部
  */
-func moveBottomToTop(s *SliceStack){
+func moveBottomToTop(s *SliceStack) {
 	if s.IsEmpty() {
 		return
 	}
-	var top1,top2 int
+	var top1, top2 int
 	top1 = s.Pop() // 弹出栈顶元素
 	if !s.IsEmpty() {
 		// 递归处理不包含栈顶元素的子栈
@@ -79,13 +79,13 @@ func moveBottomToTop(s *SliceStack){
 		top2 = s.Pop()
 		s.Push(top1)
 		s.Push(top2)
-	}else{
+	} else {
 		s.Push(top1)
 	}
 }
 
 func main() {
-	stack := CreateStack([]int{5,4,3,2,1})
+	stack := CreateStack([]int{5, 4, 3, 2, 1})
 	fmt.Println(stack)
 	ReverseStack(stack)
 	fmt.Println(stack)
