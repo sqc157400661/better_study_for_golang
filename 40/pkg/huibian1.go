@@ -1,7 +1,7 @@
 package pkg
 
 
-var Id int
+var Id = 1
 
 /*
 >go tool compile -S assembly1.go

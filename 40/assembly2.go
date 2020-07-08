@@ -1,13 +1,11 @@
+// +build ignore
 package main
 
 import (
-	"./pkg"
+	"assembly/pkg"
 	"fmt"
 )
 
 func main()  {
-	var a int
-	a=1
-	fmt.Println(a)
 	fmt.Println(pkg.Id)
 }
