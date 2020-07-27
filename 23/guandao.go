@@ -6,6 +6,11 @@ import (
 )
 
 func main(){
+	var ch chan int
+	ch = make(chan int)
+	ch<-1 //永远阻塞
+	<- ch //永远阻塞
+	close(ch)//panic close of nil channel
 	cmd0 := exec.Command("echo","-n","my first command from golang")
 	// 创建一个能够获取此命令的输出的管道
 	stdout0, err := cmd0.StdoutPipe()
