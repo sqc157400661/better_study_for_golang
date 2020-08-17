@@ -1,0 +1,16 @@
+syntax="proto3"; // 声明是proto3版本
+package services;// 声明的package名字为services
+option go_package = ".;services";
+
+message ProdRequest {
+    int32 prod_id = 1; // 商品ID
+}
+message ProdResponse {
+    int32 prod_stock = 1; //商品库存
+}
+
+service ProductService {
+    rpc  GetProductStock (ProdRequest) returns (ProdResponse);
+}
+
+// 执行protoc --go_out=plugins=grpc:../services Prod.proto
