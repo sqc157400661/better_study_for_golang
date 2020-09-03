@@ -86,6 +86,34 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 }
 ```
 ## 2020年9月3号
+### 题目：从尾到头打印链表 [来自力扣|难度简单]
+输入一个链表的头节点，从尾到头反过来返回每个节点的值（用数组返回）。
+
+示例 1：
+```
+输入：head = [1,3,2]
+输出：[2,3,1]
+
+ps限制：
+0 <= 链表长度 <= 10000
+```
+解答:
+```
+// 递归法 [想一想用栈怎么实现]
+func reversePrint(head *ListNode) []int {
+	if head == nil {
+		return []int{}
+	}
+	a := []int{}
+	node := head
+	if node.Next !=nil {
+		a = reversePrint(node.Next)
+	}
+	a = append(a, node.Val)
+	return a
+}
+```
+
 ## 2020年9月4号
 ## 2020年9月5号
 ## 2020年9月6号
