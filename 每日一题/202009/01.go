@@ -4,7 +4,7 @@ import "fmt"
 
 //链表定义
 type ListNode struct {
-	Data interface{} // 数据域
+	Val interface{} // 数据域
 	Next *ListNode      //  对下一个节点的作用
 }
 
@@ -13,7 +13,7 @@ func CreateNode(node *ListNode, max int) {
 	cur := node // 不用这个变量试试下面打印  这里有个go函数调用与栈的关系
 	for i := 1; i < max; i++ {
 		cur.Next = &ListNode{}
-		cur.Next.Data = i
+		cur.Next.Val = i
 		cur = cur.Next
 	}
 }
@@ -30,7 +30,7 @@ func main(){
 func PrintNode(info string, node *ListNode) {
 	fmt.Print(info)
 	for cur := node.Next; cur != nil; cur = cur.Next {
-		fmt.Print(cur.Data, " ")
+		fmt.Print(cur.Val, " ")
 	}
 	fmt.Println()
 }
@@ -68,6 +68,7 @@ func removeNthFromEnd(head *ListNode, n int) *ListNode {
 }
 
 /**
+优化版
  * Definition for singly-linked list.
  * type ListNode struct {
  *     Val int
