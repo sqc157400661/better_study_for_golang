@@ -255,8 +255,15 @@ func removeDuplicateNodes(head *ListNode) *ListNode {
  * }
  */
 func deleteNode(node *ListNode) {
-    
+	/*
+		将当前指针指向的值修改为下一个节点
+		注意:node = node.Next 不行  
+		因为golang函数的传递都为值传递,传递进来的指针只是一个指针的值拷贝，
+		如在函数内部把a指针的拷贝修改为b指针，并不会修改原来的a指针。 所以无效。
+	 */
+	*node = *node.Next  
 }
+
 ```
 ## 2020年9月7号
 ## 2020年9月8号
