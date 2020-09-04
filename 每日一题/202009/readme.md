@@ -115,8 +115,86 @@ func reversePrint(head *ListNode) []int {
 ```
 
 ## 2020年9月4号
+### 题目：删除链表的节点 [来自力扣|难度简单]
+给定单向链表的头指针和一个要删除的节点的值，定义一个函数删除该节点。
+
+返回删除后的链表的头节点。
+ps说明：
+题目保证链表中节点的值互不相同
+
+示例 1：
+```
+输入: head = [4,5,1,9], val = 5
+输出: [4,1,9]
+解释: 给定你链表中值为 5 的第二个节点，那么在调用了你的函数之后，该链表应变为 4 -> 1 -> 9.
+```
+示例 2:
+```
+输入: head = [4,5,1,9], val = 1
+输出: [4,5,9]
+解释: 给定你链表中值为 1 的第三个节点，那么在调用了你的函数之后，该链表应变为 4 -> 5 -> 9.
+```
+解答:
+```
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func deleteNode(head *ListNode, val int) *ListNode {
+    pre := &ListNode{}
+    newNode := pre
+	pre.Next = head
+	cur := head
+	for cur !=nil {
+        fmt.Println(cur.Val)
+		if(cur.Val==val){
+			if(cur.Next !=nil){
+				pre.Next = cur.Next
+			}else{
+				pre.Next = nil
+			}
+		}
+		cur = cur.Next
+		pre = pre.Next
+	}
+	return  newNode.Next
+}
+```
 ## 2020年9月5号
+### 题目： [来自力扣|难度简单]
+
+
+示例 1：
+```
+
+```
+示例 2:
+```
+
+```
+解答:
+```
+```
+
+
 ## 2020年9月6号
+### 题目： [来自力扣|难度简单]
+
+
+示例 1：
+```
+
+```
+示例 2:
+```
+
+```
+解答:
+```
+```
 ## 2020年9月7号
 ## 2020年9月8号
 ## 2020年9月9号
