@@ -23,7 +23,7 @@ func main(){
 	CreateNode(head, 4)
 	PrintNode("顺序输出", head)
 	newNode := deleteNode(head,3)
-	PrintNode("顺序输出", newNode)
+	PrintNode("删除链表的指定值的节点输出", newNode)
 }
 
 /**

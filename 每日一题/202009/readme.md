@@ -164,36 +164,99 @@ func deleteNode(head *ListNode, val int) *ListNode {
 }
 ```
 ## 2020年9月5号
-### 题目： [来自力扣|难度简单]
+### 题目：移除重复节点 [来自力扣|难度简单]
+编写代码，移除未排序链表中的重复节点。保留最开始出现的节点。
 
-
+进阶:不得使用临时缓冲区
 示例 1：
 ```
-
+输入：[1, 2, 3, 3, 2, 1]
+输出：[1, 2, 3]
 ```
 示例 2:
 ```
+输入：[1, 1, 1, 1, 2]
+输出：[1, 2]
+```
+解答1:  [不得使用临时缓冲区 2层遍历实现]
+```
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func removeDuplicateNodes(head *ListNode) *ListNode {
+    node := head
+	for node != nil{
+		node2 := node
+		for node2.Next != nil{
+			if(node.Val == node2.Next.Val){
+				node2.Next = node2.Next.Next
+			}else{
+				node2 = node2.Next
+			}
 
+		}
+		node = node.Next
+	}
+	return head
+}
 ```
-解答:
+解答2:  [使用临时缓冲区 map]
 ```
-```
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func removeDuplicateNodes(head *ListNode) *ListNode {
+	tmpMap := map[int]bool{}
+	//初始化一个虚拟节点
+	newNode := &ListNode{}
+	pre := newNode
+	node := head
+	pre.Next = head
+	for node !=nil {
+		if _,ok := tmpMap[node.Val];ok{
+			pre.Next = node.Next
+			node = node.Next
+		}else{
+			tmpMap[node.Val] = true
+			node = node.Next
+			pre = pre.Next
+		}
 
+	}
+	return newNode.Next
+}
+```
 
 ## 2020年9月6号
-### 题目： [来自力扣|难度简单]
-
+### 题目： 删除中间节点 [来自力扣|难度简单]
+实现一种算法，删除单向链表中间的某个节点（即不是第一个或最后一个节点），假定你只能访问该节点。
 
 示例 1：
 ```
+输入：单向链表a->b->c->d->e->f中的节点c
+结果：不返回任何数据，但该链表变为a->b->d->e->f
+```
 
-```
-示例 2:
-```
-
-```
 解答:
 ```
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func deleteNode(node *ListNode) {
+    
+}
 ```
 ## 2020年9月7号
 ## 2020年9月8号
