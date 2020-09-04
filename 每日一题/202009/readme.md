@@ -266,6 +266,29 @@ func deleteNode(node *ListNode) {
 
 ```
 ## 2020年9月7号
+### 题目： 合并两个有序链表 [来自力扣|难度简单]
+将两个升序链表合并为一个新的 升序 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。
+
+示例 1：
+```
+输入：1->2->4, 1->3->4
+输出：1->1->2->3->4->4
+```
+
+解答:
+```
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
+
+}
+```
+
 ## 2020年9月8号
 ## 2020年9月9号
 ## 2020年9月10号
