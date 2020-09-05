@@ -285,12 +285,88 @@ func deleteNode(node *ListNode) {
  * }
  */
 func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
+	var pre *ListNode
+	l3 := &ListNode{}
+	pre = l3
+	for l1 != nil || l2 != nil {
+		if l2 ==nil && l1 != nil{
+			pre.Next = l1
+			l1 = l1.Next
+		}
+
+		if l1 ==nil && l2 != nil{
+			pre.Next = l2
+			l2 = l2.Next
+		}
+		if(l1 != nil && l2 != nil){
+			if l1.Val <= l2.Val{
+				pre.Next = l1
+				l1 = l1.Next
+			}else{
+				pre.Next = l2
+				l2 = l2.Next
+			}
+		}
+		pre = pre.Next
+	}
+	return l3.Next
+}
+
+```
+
+## 2020年9月8号
+### 题目： 反转链表。 [来自力扣|难度简单]
+反转一个单链表。
+
+示例 1：
+```
+输入: 1->2->3->4->5->NULL
+输出: 5->4->3->2->1->NULL
+```
+
+解答:
+```
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func reverseList(head *ListNode) *ListNode {
 
 }
 ```
 
-## 2020年9月8号
+
 ## 2020年9月9号
+### 题目： 排序链表。 [来自力扣|难度简单]
+在 O(n log n) 时间复杂度和常数级空间复杂度下，对链表进行排序。
+
+示例 1：
+```
+输入: 4->2->1->3
+输出: 1->2->3->4
+```
+示例 2：
+```
+输入: -1->5->3->4->0
+输出: -1->0->3->4->5
+```
+
+解答:
+```
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func sortList(head *ListNode) *ListNode {
+
+}
+```
 ## 2020年9月10号
 ## 2020年9月11号
 ## 2020年9月12号
