@@ -334,7 +334,21 @@ func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
  * }
  */
 func reverseList(head *ListNode) *ListNode {
-
+    if head == nil {
+		return head
+	}
+    pre := head
+	cur := head.Next
+	pre.Next = nil
+	var next *ListNode
+	for cur !=nil {
+		next =cur.Next
+		cur.Next = pre
+		pre = cur
+		cur = next
+	}
+	
+	return  pre
 }
 ```
 
