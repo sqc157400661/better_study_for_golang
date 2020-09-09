@@ -1,11 +1,14 @@
+/*
+	排序链表
+*/
 package main
 
 import "fmt"
 
 //链表定义
 type ListNode struct {
-	Val int // 数据域
-	Next *ListNode      //  对下一个节点的作用
+	Val  int       // 数据域
+	Next *ListNode //  对下一个节点的作用
 }
 
 //创建链表
@@ -18,14 +21,15 @@ func CreateNode(node *ListNode) {
 	node.Next.Next.Next.Val = 7
 }
 
-func main(){
+func main() {
 	head := &ListNode{}
 	CreateNode(head)
 	PrintNode("顺序输出", head)
-	newNode := removeDuplicateNodes1(head)
+	newNode := sortList(head)
 	PrintNode("排序后输出", newNode)
 }
 
+// 本次使用自顶向下的递归归并算法
 /**
  * Definition for singly-linked list.
  * type ListNode struct {
@@ -34,7 +38,48 @@ func main(){
  * }
  */
 func sortList(head *ListNode) *ListNode {
-	
+	var mid *ListNode
+	if head == nil||head.Next == nil {
+		return head
+	}
+	// 1. 找中点，二分，左右分别进行排序,快慢指针 fast比slow快一个是为了让slow.next可以成为中点，便于截断
+	fast := head.Next
+	slow := head
+	for fast !=nil && fast.Next != nil {
+		fast = fast.Next.Next
+		slow = slow.Next
+	}
+	mid = slow.Next
+	// 注意要将链表截断
+	slow.Next = nil
+	// 对右边进行分割
+	l := sortList(head)
+	// 对左边进行分割
+	r :=sortList(mid)
+	// 合并 将2个链表合并成一个
+	tmpHead := &ListNode{}
+	return merge(tmpHead, l,r)
+}
+
+func merge(head *ListNode,left *ListNode, right *ListNode) *ListNode {
+	newNode := head
+	pre := newNode
+	for left != nil && right != nil {
+		if left.Val < right.Val {
+			pre.Next = left
+			left = left.Next
+		} else {
+			pre.Next = right
+			right = right.Next
+		}
+		pre = pre.Next
+	}
+	if left == nil {
+		pre.Next = right
+	} else {
+		pre.Next = left
+	}
+	return newNode.Next
 }
 
 //打印链表的方法
