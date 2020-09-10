@@ -368,10 +368,71 @@ func reverseList(head *ListNode) *ListNode {
 输出: -1->0->3->4->5
 ```
 
-解答:
+解答1:
 
-采用归并排序 参考:http://blog.xiaot123.com/5-x99nf
+采用自顶向下的递归的归并排序 参考:http://blog.xiaot123.com/5-x99nf
+
 ```
+// 本次使用自顶向下的递归归并算法
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func sortList(head *ListNode) *ListNode {
+	var mid *ListNode
+	if head == nil||head.Next == nil {
+		return head
+	}
+	// 1. 找中点，二分，左右分别进行排序,快慢指针 fast比slow快一个是为了让slow.next可以成为中点，便于截断
+	fast := head.Next
+	slow := head
+	for fast !=nil && fast.Next != nil {
+		fast = fast.Next.Next
+		slow = slow.Next
+	}
+	mid = slow.Next
+	// 注意要将链表截断
+	slow.Next = nil
+	// 对右边进行分割
+	l := sortList(head)
+	// 对左边进行分割
+	r :=sortList(mid)
+	// 合并 将2个链表合并成一个
+	tmpHead := &ListNode{}
+	return merge(tmpHead, l,r)
+}
+
+func merge(head *ListNode,left *ListNode, right *ListNode) *ListNode {
+	newNode := head
+	pre := newNode
+	for left != nil && right != nil {
+		if left.Val < right.Val {
+			pre.Next = left
+			left = left.Next
+		} else {
+			pre.Next = right
+			right = right.Next
+		}
+		pre = pre.Next
+	}
+	if left == nil {
+		pre.Next = right
+	} else {
+		pre.Next = left
+	}
+	return newNode.Next
+}
+```
+
+
+解答2(待整理):
+
+采用自底向上的归并排序 参考:http://blog.xiaot123.com/5-x99nf
+```
+// 采用自底向上的归并排序
 /**
  * Definition for singly-linked list.
  * type ListNode struct {
@@ -383,6 +444,7 @@ func sortList(head *ListNode) *ListNode {
 
 }
 ```
+
 ## 2020年9月10号
 ### 题目： 环路检测。 [来自力扣|难度中等]
 给定一个链表，如果它是有环链表，实现一个算法返回环路的开头节点。
