@@ -483,7 +483,32 @@ func sortList(head *ListNode) *ListNode {
  * }
  */
 func detectCycle(head *ListNode) *ListNode {
-    
+   if head==nil || head.Next==nil{
+		return nil
+	}
+	// 找出相遇的节点
+	fast :=head
+	slow :=head
+	var meeta *ListNode // 相遇的节点
+	for fast !=nil && fast.Next != nil {
+		fast = fast.Next.Next
+		slow = slow.Next
+		if fast == slow {
+			meeta = fast
+			break
+		}
+	}
+	if meeta == nil {
+		return meeta
+	}
+	for meeta != nil {
+		if meeta == head {
+			break
+		}
+		meeta = meeta.Next
+		head = head.Next
+	}
+	return meeta
 }
 ```
 
