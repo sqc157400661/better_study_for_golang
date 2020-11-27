@@ -1,6 +1,6 @@
 package sqctool
 
-// ChanPrefixMap maps from index string to event name
+// 可以注册的事件map配置
 var ChanPrefixMap = map[string]string{
 	"1": "request",
 	"2": "response",

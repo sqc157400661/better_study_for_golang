@@ -53,7 +53,7 @@ func CreateGor() *Gor {
 	return gor
 }
 
-// On is used to register event and callback function
+// On func 注册事件和回调函数
 func (gor *Gor) On(
 	channel string, fn func(*Gor, *GorMessage, ...interface{}) *GorMessage,
 	idx string, args ...interface{}) {
@@ -128,7 +128,7 @@ func (gor *Gor) Emit(msg *GorMessage) error {
 	return nil
 }
 
-// HexData translates a GorMessage into middleware dataflow string
+// HexData 解析数据到GorMessage
 func (gor *Gor) HexData(msg *GorMessage) string {
 	encodeList := [3][]byte{msg.RawMeta, []byte("\n"), msg.HTTP}
 	encodedList := make([]string, 3)
@@ -145,6 +145,8 @@ func (gor *Gor) ParseMessage(line string) (*GorMessage, error) {
 	if err != nil {
 		return nil, err
 	}
+
+
 	metaPos := bytes.Index(payload, []byte("\n"))
 	metaRaw := payload[:metaPos]
 	metaArr := bytes.Split(metaRaw, []byte(" "))
@@ -153,6 +155,7 @@ func (gor *Gor) ParseMessage(line string) (*GorMessage, error) {
 		return nil, err
 	}
 	httpPayload := payload[metaPos+1:]
+
 	return &GorMessage{
 		ID:      pid,
 		Type:    string(ptype),
@@ -205,6 +208,7 @@ func (gor *Gor) processor() {
 	}
 }
 
+// 根据信号结束服务 todo
 func (gor *Gor) shutdown() {
 }
 

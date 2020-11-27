@@ -11,7 +11,7 @@ func invalidPayloadError(payload string) (string, error) {
 	return "", fmt.Errorf("invalid payload: %s", payload)
 }
 
-// HTTPMethod returns http method from payload string
+// HTTPMethod 获取请求方法
 func HTTPMethod(payload string) (string, error) {
 	pend := strings.IndexByte(payload, ' ')
 	if pend == -1 {
@@ -20,7 +20,7 @@ func HTTPMethod(payload string) (string, error) {
 	return payload[:pend], nil
 }
 
-// HTTPPath returns http path from payload string
+// HTTPPath r获取请求路径
 func HTTPPath(payload string) (string, error) {
 	payload, err := url.PathUnescape(payload)
 	if err != nil {
@@ -37,7 +37,6 @@ func HTTPPath(payload string) (string, error) {
 	return payload[pstart+1 : pstart+pend+1], nil
 }
 
-// SetHTTPPath sets new path returns new payload string
 func SetHTTPPath(payload, newPath string) (string, error) {
 	pstart := strings.IndexByte(payload, ' ')
 	if pstart == -1 {
@@ -50,19 +49,17 @@ func SetHTTPPath(payload, newPath string) (string, error) {
 	return payload[:pstart+1] + newPath + payload[pstart+pend+1:], nil
 }
 
-// HTTPStatus returns http status of the payload
-// HTTP response have status code in the same position as path for requests
+// HTTPStatus 获取状态吗的信息.
 func HTTPStatus(payload string) (string, error) {
 	return HTTPPath(payload)
 }
 
-// SetHTTPStatus set new status and return new payload string
+// SetHTTPStatus 设置新的状态码
 func SetHTTPStatus(payload, newStatus string) (string, error) {
 	return SetHTTPPath(payload, newStatus)
 }
 
-// HTTPPathParam gets path param with specific name, params with same name will
-// be all returned in the slice
+// HTTPPathParam 从地址栏里获取对于key的参数信息
 func HTTPPathParam(payload, name string) ([]string, error) {
 	path, err := HTTPPath(payload)
 	if err != nil {
@@ -83,7 +80,34 @@ func HTTPPathParam(payload, name string) ([]string, error) {
 	return value, nil
 }
 
-// SetHTTPPathParam sets path param new value with key and returns new payload string
+// HTTPPathParams 获取所有的参数信息
+func HTTPPathParams(payload string) (map[string][]string, error) {
+	path, err := HTTPPath(payload)
+	if err != nil {
+		return map[string][]string{}, err
+	}
+	u, err := url.Parse(path)
+	if err != nil {
+		return map[string][]string{}, err
+	}
+	m, err := url.ParseQuery(u.RawQuery)
+	if err != nil {
+		return map[string][]string{}, err
+	}
+	return m, nil
+}
+
+func HTTPResp(payload string) (string, error) {
+	pstart := strings.Index(payload, "{")
+	pend := strings.LastIndex(payload, "}")
+	if pstart == -1 || pend==-1{
+		return invalidPayloadError(payload)
+	}
+	return payload[pstart:pend+1], nil
+}
+
+
+// SetHTTPPathParam 设置新的参数信息
 func SetHTTPPathParam(payload, name, value string) (string, error) {
 	pathQs, err := HTTPPath(payload)
 	if err != nil {
@@ -103,7 +127,7 @@ func SetHTTPPathParam(payload, name, value string) (string, error) {
 	return SetHTTPPath(payload, url.PathEscape(newPath))
 }
 
-// HTTPHeader returns the value of key with specific name in http headers
+// HTTPHeader 获取header信息
 func HTTPHeader(payload, name string) (map[string]interface{}, error) {
 	currentLine := 0
 	idx := 0
@@ -149,7 +173,7 @@ func HTTPHeader(payload, name string) (map[string]interface{}, error) {
 	return nil, nil
 }
 
-// SetHTTPHeader sets variable in http header with specific key value pair
+// SetHTTPHeader  设置header信息
 func SetHTTPHeader(payload, name, value string) (string, error) {
 	header, err := HTTPHeader(payload, name)
 	if err != nil {

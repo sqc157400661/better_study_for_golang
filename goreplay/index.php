@@ -5,10 +5,12 @@ $result = [
 	"Msg" => "success",
 	"Data" => [
 		[
+		    "Age"=>"35",
 			"Name"=>"CangLaoShi",
-			"Age"=>35
-		]
+		],
 	]
 ];
+
+@file_put_contents('/website/goreplay/phpdemo.log',"ok".PHP_EOL,FILE_APPEND);
 
 echo json_encode($result);
