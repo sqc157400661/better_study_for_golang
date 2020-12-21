@@ -10,6 +10,7 @@ func Push(node int) {
 }
 
 func Pop() int {
+	// stack1 不为空 stack2为空 把stack1的内容压到stack2中  用来进行负负得正
 	if len(stack2) == 0 {
 		for len(stack1) > 0 {
 			tmp := stack1[0]
@@ -25,9 +26,11 @@ func Pop() int {
 	if len(stack2) <= 0 {
 		return -1
 	} else if len(stack2) == 1 {
+		//清空stack2
 		re = stack2[0]
 		stack2 = []int{}
 	} else {
+		// pop stack2
 		re = stack2[0]
 		stack2 = stack2[1:]
 
