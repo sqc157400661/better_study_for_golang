@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 /**
- *
+ * 摩尔投票法
  * @param numbers int整型一维数组
  * @return int整型
  */
