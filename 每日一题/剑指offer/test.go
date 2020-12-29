@@ -1,16 +1,12 @@
 package main
 
 import (
-	"context"
 	"fmt"
+	"strings"
 )
 
 func main(){
-	ctx :=context.Background()
-	aa,_ := ctx.Value("sdfsadf").(map[string]bool)
-
-	if aa["aa"] {
-		aa["aa"] = true
-	}
-	fmt.Println(aa["bb"])
+	aa := []string{"1","9"}
+	res := strings.Join(aa,",")
+	fmt.Println(res)
 }
