@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7289488c-a676-464a-b924-bacfa939e74c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/index.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/昨日重现 (2).md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/昨日重现.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo.go" beforeDir="false" afterPath="$PROJECT_DIR$/demo.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,10 +107,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="463" y="151" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1604123986025" />
-    <state x="652" y="346" key="com.intellij.ide.util.TipDialog" timestamp="1604276781805">
+    <state x="652" y="346" key="com.intellij.ide.util.TipDialog" timestamp="1609294300821">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="652" y="346" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604276781805" />
+    <state x="652" y="346" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1609294300821" />
     <state x="580" y="246" width="759" height="548" key="find.popup" timestamp="1603364466594">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

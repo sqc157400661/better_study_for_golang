@@ -2,29 +2,43 @@ package main
 
 import "fmt"
 
-func findContinuousSequence(target int) [][]int {
-	var result = [][]int{}
-	//起始 l=1,r=2
-	l:=1
-	r:=2
-	for(l<r){
-		sum := (l+r)*(r-l+1)/2
-		if sum < target {
-			r++
-		}else if sum > target{
-			l++
-		}else{
-			tmp := []int{}
-			for i:=l;i<=r;i++{
-				tmp = append(tmp,i)
-			}
-			result = append(result,tmp)
-			l++ // 包含l的只能有一个连续数
+func twoSum(nums []int, target int) []int {
+	i := 0
+	j := len(nums) - 1
+	for i < j {
+		s := nums[i] + nums[j]
+		if s > target {
+			j -= 1
+		} else if s < target {
+			i += 1
+		} else {
+			return []int{nums[i], nums[j]}
 		}
 	}
-	return result
+	return nil
 }
 
-func main(){
-	fmt.Println(findContinuousSequence(9))
+// 获取所有组合
+func twoSumAll(nums []int, target int) [][]int {
+	i := 0
+	j := len(nums) - 1
+	res := [][]int{}
+	for i < j {
+		s := nums[i] + nums[j]
+		if s > target {
+			j -= 1
+		} else if s < target {
+			i += 1
+		} else {
+			res = append(res, []int{nums[i], nums[j]})
+			i += 1
+			j -= 1
+		}
+	}
+	return res
+}
+
+func main() {
+	arr := []int{1, 2, 3, 5, 6, 7, 8, 9}
+	fmt.Println(twoSum(arr, 8))
 }
