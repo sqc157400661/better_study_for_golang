@@ -2,11 +2,10 @@ package main
 
 import (
 	"fmt"
-	"strings"
+	"net/url"
 )
 
 func main(){
-	aa := []string{"1","9"}
-	res := strings.Join(aa,",")
-	fmt.Println(res)
+	aa := "%D0%9C%C2%B0"
+	fmt.Println(url.QueryUnescape(aa))
 }
