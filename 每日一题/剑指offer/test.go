@@ -1,11 +1,22 @@
 package main
 
-import (
-	"fmt"
-	"net/url"
-)
+import "fmt"
 
+type A struct {
+	B
+	C
+}
+type B struct {
+	BB string
+}
+type C struct {
+	BB string
+}
 func main(){
-	aa := "%D0%9C%C2%B0"
-	fmt.Println(url.QueryUnescape(aa))
+	a := get()
+	fmt.Println(a["aa"])
+}
+
+func get() map[string]string {
+	return nil
 }
