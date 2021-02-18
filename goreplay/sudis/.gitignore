@@ -1,0 +1,17 @@
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+/bin
+/vendor
+.idea
+
+/conf
+/etc
+/.env
+/nodes/http/http_static_bindata_assets.go
+*.iml
