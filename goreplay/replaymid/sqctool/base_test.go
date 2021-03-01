@@ -12,7 +12,7 @@ func init() {
 	passby["counter"] = 0
 }
 
-func incrCounter(gor *Gor, msg *GorMessage, kwargs ...interface{}) *GorMessage {
+func incrCounter(gor *sqctool.Gor, msg *sqctool.GorMessage, kwargs ...interface{}) *sqctool.GorMessage {
 	passbyReadonly, _ := kwargs[0].(map[string]int)
 	increase, _ := kwargs[1].(int)
 	passby["counter"] += passbyReadonly["counter"] + increase
@@ -20,7 +20,7 @@ func incrCounter(gor *Gor, msg *GorMessage, kwargs ...interface{}) *GorMessage {
 }
 
 func TestMessageLogic(t *testing.T) {
-	gor := CreateGor()
+	gor := sqctool.CreateGor()
 	gor.On("message", incrCounter, "", &passby, 1)
 	gor.On("request", incrCounter, "", &passby, 2)
 	gor.On("response", incrCounter, "2", &passby, 3)
@@ -51,7 +51,7 @@ func TestMessageLogic(t *testing.T) {
 }
 
 func TestParseMessage(t *testing.T) {
-	gor := CreateGor()
+	gor := sqctool.CreateGor()
 	payload := hex.EncodeToString([]byte("1 2 3\nGET / HTTP/1.1\r\n\r\n"))
 	if msg, err := gor.ParseMessage(payload); err != nil {
 		t.Error(err.Error())

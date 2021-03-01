@@ -1,6 +1,10 @@
+# github.com/buger/goreplay v1.2.0
+github.com/buger/goreplay/byteutils
+github.com/buger/goreplay/proto
 # github.com/sergi/go-diff v1.1.0
 github.com/sergi/go-diff/diffmatchpatch
 # github.com/yudai/gojsondiff v1.0.0
 github.com/yudai/gojsondiff
+github.com/yudai/gojsondiff/formatter
 # github.com/yudai/golcs v0.0.0-20170316035057-ecda9a501e82
 github.com/yudai/golcs
