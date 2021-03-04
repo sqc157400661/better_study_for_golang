@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7289488c-a676-464a-b924-bacfa939e74c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/demo20210304.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/index.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/replaymid/sqctool/parse.go" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/replaymid/sqctool/raw.go" afterDir="false" />
@@ -53,20 +54,32 @@
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
     <property name="go.vendoring.notification.had.been.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Snail/Go专题系列/code/Go语言性能分析/pprof" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="go.vgo" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\www\better_study_for_golang\goreplay" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\www\better_study_for_golang\goreplay\replaymid\sqctool" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.go build replaymid">
+  <component name="RunManager" selected="Go Build.go build goreplaydemo">
     <configuration name="go build demo.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="goreplay" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="FILE" />
       <filePath value="$PROJECT_DIR$/demo.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build goreplaydemo" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="goreplay" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/demo20210304.go" />
+      <package value="goreplaydemo" />
+      <directory value="$PROJECT_DIR$/" />
       <method v="2" />
     </configuration>
     <configuration name="go build replaymid" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
@@ -80,6 +93,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build goreplaydemo" />
         <item itemvalue="Go Build.go build replaymid" />
         <item itemvalue="Go Build.go build demo.go" />
       </list>
@@ -97,6 +111,42 @@
       <screen x="1440" y="0" width="1920" height="1080" />
     </state>
     <state x="1992" y="200" key="#Options/0.0.1440.860/1440.0.1920.1080@1440.0.1920.1080" timestamp="1613788245496" />
+    <state x="675" y="178" key="#go_build_goreplaydemo" timestamp="1614845956865">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="675" y="178" key="#go_build_goreplaydemo/0.0.1920.1040@0.0.1920.1040" timestamp="1614845956865" />
+    <state width="1876" height="342" key="GridCell.Tab.0.bottom" timestamp="1614846173084">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="342" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1614846173084" />
+    <state width="1876" height="342" key="GridCell.Tab.0.center" timestamp="1614846173084">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="342" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1614846173084" />
+    <state width="1876" height="342" key="GridCell.Tab.0.left" timestamp="1614846173084">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="342" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1614846173084" />
+    <state width="1876" height="342" key="GridCell.Tab.0.right" timestamp="1614846173084">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="342" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1614846173084" />
+    <state width="1876" height="342" key="GridCell.Tab.1.bottom" timestamp="1614846178760">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="342" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1614846178760" />
+    <state width="1876" height="342" key="GridCell.Tab.1.center" timestamp="1614846178759">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="342" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1614846178759" />
+    <state width="1876" height="342" key="GridCell.Tab.1.left" timestamp="1614846178759">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="342" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1614846178759" />
+    <state width="1876" height="342" key="GridCell.Tab.1.right" timestamp="1614846178760">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="342" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1614846178760" />
     <state x="463" y="151" key="SettingsEditor" timestamp="1613781041065">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -113,5 +163,31 @@
       <screen x="0" y="0" width="1440" height="860" />
     </state>
     <state x="0" y="0" width="1456" height="949" key="dock-window-2/0.0.1440.860/1440.0.1920.1080@1440.0.1920.1080" timestamp="1613789083129" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/demo20210304.go</url>
+          <line>41</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/demo20210304.go</url>
+          <line>42</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/demo20210304.go</url>
+          <line>44</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/demo20210304.go</url>
+          <line>45</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
