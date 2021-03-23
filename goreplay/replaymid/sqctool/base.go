@@ -165,7 +165,7 @@ func (gor *Gor) ParseMessage(line string) (*GorMessage, error) {
 	}, nil
 }
 
-func (gor *Gor) cleanOldChannel(interval int) {
+func (gor *Gor)cleanOldChannel(interval int) {
 	ticker := time.NewTicker(time.Second * 1)
 	for range ticker.C {
 		gor.lock.Lock()
@@ -211,7 +211,7 @@ func (gor *Gor) processor() {
 
 // 根据信号结束服务 todo
 func (gor *Gor) shutdown() {
-}
+}s
 
 func (gor *Gor) handleSignal(sigChan chan os.Signal) {
 	for {
