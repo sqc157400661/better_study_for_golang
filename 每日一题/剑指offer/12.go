@@ -34,7 +34,7 @@ func dfs(i, j int, board [][]byte, word string, k int) bool {
 	right := dfs(i, j+1, board, word, k+1)
 
 	res := top || down || left || right
-	board[i][j] = word[k]
+	board[i][j] = word[k] // 元素还原至初始值，即 word[k]，因为走到自己这里board[i][j]初始值必定等于word[k]
 	return res
 }
 
