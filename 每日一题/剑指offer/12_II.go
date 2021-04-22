@@ -45,5 +45,6 @@ func dfsSum(board *[][]string, i, j int) int {
 	dfsSum(board,i,j-1)
 	// 下面
 	dfsSum(board,i+1,j)
+	(*board)[i][j] = "*"
 	return sum
 }

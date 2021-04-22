@@ -1,17 +1,19 @@
 package main
 
-import (
-	"encoding/json"
-	"fmt"
-)
+import "fmt"
 
 func main() {
-	str := []int{1,3}
-	re,_ := json.Marshal(str)
-	fmt.Println(string(re))
+	t1 := []int{1,3}
+	testSlice(t1)
 
-	res :=  []int{}
-	json.Unmarshal(re,&res)
-	fmt.Println(res)
+	t2 := map[int]int{1:2}
+	testMap(t2)
 
+	fmt.Println(t1,t2)
+}
+func testSlice(s []int){
+	s = append(s,5,6)
+}
+func testMap(s map[int]int){
+	s[55] = 55
 }
