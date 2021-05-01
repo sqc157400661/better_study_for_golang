@@ -1,19 +1,21 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"runtime"
+)
 
+// Main Goroutine
 func main() {
-	t1 := []int{1,3}
-	testSlice(t1)
+	// 模拟单核 CPU
+	runtime.GOMAXPROCS(1)
 
-	t2 := map[int]int{1:2}
-	testMap(t2)
+	// 模拟 Goroutine 死循环
+	go func() {
+		for true {
 
-	fmt.Println(t1,t2)
-}
-func testSlice(s []int){
-	s = append(s,5,6)
-}
-func testMap(s map[int]int){
-	s[55] = 55
+		}
+	}()
+
+	fmt.Println("shiqingchuang")
 }
