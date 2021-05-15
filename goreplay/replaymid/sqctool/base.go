@@ -211,7 +211,7 @@ func (gor *Gor) processor() {
 
 // 根据信号结束服务 todo
 func (gor *Gor) shutdown() {
-}s
+}
 
 func (gor *Gor) handleSignal(sigChan chan os.Signal) {
 	for {
