@@ -2,20 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7289488c-a676-464a-b924-bacfa939e74c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/demo20210304.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/index.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/replaymid/sqctool/parse.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/replaymid/sqctool/raw.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/昨日重现 (2).md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/昨日重现.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/replaymid/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/replaymid/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/replaymid/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/replaymid/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/replaymid/mid.go" beforeDir="false" afterPath="$PROJECT_DIR$/replaymid/mid.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/replaymid/sqctool/base.go" beforeDir="false" afterPath="$PROJECT_DIR$/replaymid/sqctool/base.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/replaymid/sqctool/base_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/replaymid/sqctool/base_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/replaymid/sqctool/consts.go" beforeDir="false" afterPath="$PROJECT_DIR$/replaymid/sqctool/consts.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/replaymid/vendor/modules.txt" beforeDir="false" afterPath="$PROJECT_DIR$/replaymid/vendor/modules.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../每日一题/剑指offer/test.go" beforeDir="false" afterPath="$PROJECT_DIR$/../每日一题/剑指offer/test.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,12 +18,13 @@
   </component>
   <component name="GOROOT" path="C:/ThsSoftware/Golang_ths/ths" />
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="GoLibraries">
     <option name="indexEntireGoPath" value="false" />
   </component>
   <component name="ProjectId" id="1jE3Fd3C5EawroEPLQwD5FdaY1z" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -147,9 +135,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1876" height="342" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1614860366061" />
-    <state x="463" y="151" key="SettingsEditor" timestamp="1613781041065">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="347" y="122" key="SettingsEditor" timestamp="1619695081385">
+      <screen x="0" y="0" width="1440" height="860" />
     </state>
+    <state x="347" y="122" key="SettingsEditor/0.0.1440.860/1440.0.1920.1080@0.0.1440.860" timestamp="1619695081384" />
     <state x="463" y="151" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1613781041065" />
     <state x="652" y="346" key="com.intellij.ide.util.TipDialog" timestamp="1615353805020">
       <screen x="0" y="0" width="1920" height="1040" />
