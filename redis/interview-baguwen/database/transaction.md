@@ -118,6 +118,7 @@ innodb 引擎的可重复读隔离级别，要比定义的隔离级别更加严�
 （为了方便记忆，记住这个过程：`commit` -> `log buffer` -> `OS cache` -> `fsync`）
 （下面这一段是可选）
 数据库有一个参数 `innodb_flush_log_at_trx_commit` 可以控制刷盘的时机：
+
 1. 0，写到`log buffer`, 每秒刷新；
 2. 1，实时刷新；
 3. 2，写到`OS cache`, 每秒刷新
@@ -151,6 +152,7 @@ Redis的`AOF`机制也面临类似的问题，即`AOF`也不是立刻刷盘，�
 
 （扩展点1，阐述两阶段提交）
 因为`redo log`生成到`binlog`写入之间有一个时间差，所以为了保证两者的一致性，MySQL引入了两阶段提交:
+
 1. Prepare阶段，写入`redo log`；
 2. Commit阶段，写入`binlog`，提交事务；
 
